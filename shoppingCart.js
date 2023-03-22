@@ -7,7 +7,7 @@ const cartItemsTemplate = document.querySelector("#cart-item")
 let shoppingCartItems = []
 const IMG_URL = "https://dummyimage.com/210x130"
 const cartItemQua = document.querySelector("[cart-item-total-quantity]")
-const cartItemValue = document.querySelector("[cart-item-price ]")
+const cartTotalPrice = document.querySelector("[cart-total-price]")
 
 
 export function setupShoppingCart() { }
@@ -32,12 +32,10 @@ function renderCartItem() {
 
     const price = shoppingCartItems.reduce((sum, entry) => {
         const item = items.find(i => entry.id === i.id)
-        return sum + item.priceCents * item.quantity
+        return sum + item.priceCents * entry.quantity
     }, 0)
     console.log(price)
-
-        // cartItemValue.innerText = textToCurrency()
-
+    cartTotalPrice.innerText=textToCurrency(price/100)
     cartitems.innerHTML = ""
 
     shoppingCartItems.forEach(entry => {
