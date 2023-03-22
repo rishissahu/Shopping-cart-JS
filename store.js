@@ -7,10 +7,12 @@ const item_container = document.querySelector("#wrapper")
 const IMG_URL = "https://dummyimage.com/420x260"
 
 export function setupStore() {
+    if(dataTemplate==null) return
+    addBtnEvent()
     items.forEach(renderStoreItems)
 }
 
-export function addBtnEvent() {
+ function addBtnEvent() {
     addGlobalEventListener("click", "[data-add-to-cart-btn]", e => {
         const id = e.target.closest("[data-store-item]").dataset.itemId
         addToCart(parseInt(id))

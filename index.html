@@ -49,53 +49,45 @@
       </div>
     </div>
   </section>
-  <section>
-    <div class="mb-4 top-0 right-0 mr-4 mt-20 fixed">
-      <div style="max-height: calc(100vh - 6rem);" class="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col">
-        <div class="overflow-y-auto px-4 pt-4">
-          <div class="mb-6">
-            <div class="block relative h-24 rounded overflow-hidden">
-              <img alt="ecommerce" class="object-cover object-center w-full h-full block rounded" src="https://dummyimage.com/210x130/F00/F00">
-              <button data-remove-from-cart-button class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center">&times;</button>
-            </div>
-            <div class="mt-2 flex justify-between">
-              <div class="flex items-center title-font">
-                <h2 class="text-gray-900 text-lg font-medium">
-                  Red
-                </h2>
-                <span class="text-gray-600 text-sm font-bold ml-1">x2</span>
-              </div>
-              <div>$32.00</div>
-            </div>
-          </div>
-          <div class="mb-6">
-            <div class="block relative h-24 rounded overflow-hidden">
-              <img alt="ecommerce" class="object-cover object-center w-full h-full block rounded" src="https://dummyimage.com/210x130/00F/00F">
-              <button data-remove-from-cart-button class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center">&times;</button>
-            </div>
-            <div class="mt-2 flex justify-between">
-              <div class="flex items-center title-font">
-                <h2 class="text-gray-900 text-lg font-medium">
-                  Blue
-                </h2>
-              </div>
-              <div>$12.00</div>
-            </div>
-          </div>
+  <section data-cart class="invisible">
+    <div cart-items-wrapper class="invisible mb-4 top-0 right-0 mr-4 mt-20 fixed">
+      <div style="max-height: calc(100vh - 6rem);"
+        class="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col">
+        <div cart-items class="overflow-y-auto px-4 pt-4">
         </div>
         <div class="flex justify-between items-end border-t p-4">
           <span class="font-bold text-lg uppercase">Total</span>
-          <span class="font-bold">$44.00</span>
+          <span cart-total-price class="font-bold"> </span>
         </div>
       </div>
     </div>
-    <button class="fixed top-0 right-0 mr-4 mt-4 w-12 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-700">
+    <button cart-button
+      class="fixed top-0 right-0 mr-4 mt-4 w-12 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-700">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
-      <div class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2">2</div>
+      <div cart-item-total-quantity
+        class="bg-red-500 rounded-full text-xs absolute w-6 h-6 flex justify-center items-center right-0 bottom-0 transform translate-x-2 translate-y-2">0
+      </div>
     </button>
   </section>
-  <!-- <script src="app.js"></script> -->
+  <template id="cart-item">
+    <div  data-item class="mb-6">
+      <div class="block relative h-24 rounded overflow-hidden">
+        <img cart-item-img alt="ecommerce" class="object-cover object-center w-full h-full block rounded">
+        <button data-remove-from-cart-button
+          class="absolute top-0 right-0 bg-black rounded-tr text-white w-6 h-6 text-lg flex justify-center items-center">&times;</button>
+      </div>
+      <div class="mt-2 flex justify-between">
+        <div class="flex items-center title-font">
+          <h2 cart-item-name class="text-gray-900 text-lg font-medium"></h2>
+          <span cart-item-quantity class="text-gray-600 text-sm font-bold ml-1"></span>
+        </div>
+        <div cart-item-price></div>
+      </div>
+    </div>
+  </template>
+  <script src="app.js"></script>
 </body>
 </html>
